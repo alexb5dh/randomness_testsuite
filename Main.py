@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import traceback
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 from tkinter.filedialog import asksaveasfile
@@ -314,7 +315,7 @@ class Main(Frame):
             messagebox.showinfo("Execute", "Test Complete.")
         except Exception as e:
             messagebox.showerror("Error", str(e))
-            print(e)
+            print(traceback.format_exc())
 
     def write_results(self, results):
         """
