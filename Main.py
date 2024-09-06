@@ -274,11 +274,9 @@ class Main(Frame):
         elif not len(self.__binary_data_file_input.get_data()) == 0:
             temp = []
             if self.__file_name:
-                handle = open(self.__file_name)
-            for data in handle:
-                temp.append(data.strip().rstrip())
-            test_data = ''.join(temp)
-            input.append(test_data[:1000000])
+                handle = open(self.__file_name, 'r+b')
+            test_data = handle.read()
+            input.append(Tools.bytes_to_binary(test_data[:1000000]))
         elif not len(self.__string_data_file_input.get_data()) == 0:
             data = []
             count = 1
